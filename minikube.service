@@ -1,0 +1,14 @@
+[Unit]
+Description=Minikube start
+
+[Service]
+User=root
+Type=oneshot
+WorkingDirectory=/root
+ExecStart=/root/minikube-init.sh
+RemainAfterExit=true
+ExecStop=/usr/local/bin/minikube stop
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
